@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<project name="Calc-test" default="main" basedir=".">
+    <property name="dir.src" value="src"/>
+    <property name="dir.build" value="build"/>
+    <property name="dir.class" value="${dir.build}/class"/>
+    <property name="dir.jar" location="${dir.build}/jar"/>
+    <property name="mainClass" value="Calculadora"/>
+
+    <target name="clean">
+        <delete dir="${dir.build}"/>
+    </target>
+
+    <target name="compile">
+        <mkdir dir ="${dir.class}"/>
+        <javac srcdir="${dir.src}" destdir="${dir.class}">
+        </javac>
+    </target>
+
+
+    <target name="jar" depends="compile">
+        <mkdir dir="dir.jar"/>
+        <jar destfile="${dir.jar}/${ant.project.name}.jar" basedir="${dir.class}">
+            <manifest>
+                <attribute name="Main-Class" value="mainClass"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <target name="run" depends="jar">
+        <java jar="${dir.jar}\${ant.project.name}.jar" fork="true"/>
+    </target>
+    <target name="clean-build" depends="clean,jar"/>
+    <target name="main" depends="clean,run"/>
+
+</project>
