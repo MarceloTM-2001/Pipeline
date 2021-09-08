@@ -12,7 +12,7 @@ public class Calculadora {
         public static void main(String[] args) {
             com.company.Calculadora calc=new com.company.Calculadora();
             System.out.println(calc.add(20,5));
-            System.out.println(calc.sub(30,5));
+            System.out.println(calc.div(6,8));
 
         }
         public double add(double x, double y) {
