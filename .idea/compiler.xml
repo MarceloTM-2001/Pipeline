@@ -9,7 +9,7 @@
         <module name="Pipeline" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="15">
+    <bytecodeTargetLevel>
       <module name="Pipeline" target="1.5" />
     </bytecodeTargetLevel>
   </component>
